@@ -58,6 +58,8 @@ As implemented, each feature is enabled or disabled by entering an 8-digit numbe
 of a 5-digit feature code, and then 3-digits to enable, disable, or configure the feature.
 Type the number and press the enter key on the remote.  
 
-
-
+# Compiling
+Compile this sketch for Arduino Mega 2560.  It has the following library dependencies:
+* Adafruit NeoPixel
+* Adafruit SSD1306
 
