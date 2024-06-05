@@ -160,6 +160,10 @@ The motion detector program will prevent the motion detector from cutting power 
 for the first 20 seconds after a door is closed.  This is so a person closing the door 
 doesn't inadvertently unlock the door again just by walking near it.
 
+If you're connecting the motion detector to the Companion board and using it to cut lock
+power, there is no longer any reason to wire the motion detector to (for example) the Exit Button
+input on the Paxton board.
+
 ## Door lock connection
 If your lock is "locked while powered", then it is ideal to route the power through *both*
 the Paxton Net2 ACU's Relay 1, and the Ruggeduino Companion's Relay 1, both on the normally
