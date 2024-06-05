@@ -75,8 +75,8 @@ A Wiegand card reader connects to the top-left 8-terminal port (J3), as follows:
 * Wiegand Data D1 (GPIO19)
 * LED (GPIO12)
 * Beep (GPIO11)
-* N/C (A8)
-* Bell button (A9)
+* Bell button (A8)
+* N/C or 2nd bell button wire (A9)
 * GND
 
 If your reader doesn't have a feature, or a wire for it, then leave the terminal unconnected.  If your reader has
@@ -109,7 +109,10 @@ wiring harness, then it's a good indication that it is just a dry contact switch
 ## Door contact
 Connect to A15 and GND on the lower right side of the board (J12).
 
-If it's a double door, use A15 for one door, and A14 for the other door.
+If it's a double door and you have a separate door contact for each door slab,
+use A15 for one door, and A14 for the other door.  The double door detection
+allows for a subtle behavioral difference in the motion detecting and lock cutoff logic when someone
+opens only one slab of the door and then closes it shortly afterward.
 
 The selection of a "door program" enables the behavior of detecting whether the door(s) are
 closed, and whether to allow the motion detector input to cut the lock current (via Relay 1).
@@ -133,10 +136,19 @@ when motion is detected.
 The motion detector program doesn't require a feature code -- it's active any time a door program
 is active, or a relay program that references the motion detector.
 
+The motion detector program will prevent the motion detector from cutting power to the lock
+for the first 20 seconds after a door is closed.  This is so a person closing the door (and
+ensuring it closed correctly) doesn't inadvertently release the door again by walking away from it.
+
 ## Door lock
 Connect this to Relay 1 (J8).  It's best to use the "normally closed" connection.
-The motion detector and door program will energize this relay when unlocking the door is
-desired due to motion detection.
+The motion detector and door program will energize this relay to cut power to the lock when
+motion is detected under the appropriate conditions.
+
+When using this feature, you'll want to wire your motion detector relay so that it tells
+the board when motion is detected, instead of directly cutting power to the lock.  This will
+allow the board to limit when the motion detector is allowed to unlock the door, and avoid
+it immediately unlocking doors that a person intends to lock.
 
 ## Relay program
 This feature allows you to configure any of the 4 onboard relays to mirror some sensed
