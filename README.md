@@ -44,10 +44,13 @@ enabled by an installer using an infrared remote control.
 
 8. Use any regular dry-contact doorbell switch to transmit the "doorbell pressed" message to the Paxton Net2 ACU.
 
+9. The ability to use the free Arduino IDE software to make modifications to the firmware (or create your own) with
+    intermediate-level Arduino programming experience
+
 # Setup
 
-This firmware is designed to work on a board that is pre-flashed for an out-of-box experience.
-The board has a single button that allows navigation through a basic menu screen.
+This firmware is designed to be useful on a board that is sold pre-flashed and packaged with an infrared remote
+for a typical install and configuration.  The board has a single button for navigating through a basic menu screen.
 
 Press the button to flip through the pages.  Some of the pages may suggest doing a long press
 (~1 sec) to drill down into more detail about that feature (which is view-only).
@@ -55,9 +58,10 @@ Press the button to flip through the pages.  Some of the pages may suggest doing
 One of the first pages is "programming mode".
 
 In "programming mode", an infrared remote can be used to enable and configure the built-in
-features.  The low-cost generic hobby remote provided in Arduino kits on Amazon is natively
-supported, and a quick-learn feature allows the board to learn a new remote in case you do not
-have one of these handy.
+features.  The low-cost generic remote provided in Arduino hobby kits on Amazon is natively
+supported, and the firmware's quick-learn feature allows the board to learn a new remote in case you do not
+have one of these handy.  (Press 0 on that remote, ten times, in programming mode, to start the
+learning process.  If nothing happens, the remote isn't compatible)
 
 As implemented, each feature is enabled or disabled by entering an 8-digit number, consisting
 of a 5-digit feature code, and then 3-digits to enable, disable, or configure the feature.
@@ -193,22 +197,7 @@ codes to target different models of locks or levels of current.  A notable possi
 is being able to detect whether the lock is jammed by analysis of its current consumption
 (e.g. a lock that failing to engage with the door due to incomplete closure or poor alignment).
 
-## Support for 2, 3, 4 readers and doors
-This feature is vaporware at the moment, just hasn't been written into the firmware.
-
-Here's how it's expected to work: we start by connecting two RFID readers to a single
-8-terminal connection on the left side of the board.  The power wires are shared, and
-three signal wires are connected per reader:
-data D0, data D1, and the wire to control the LED color.  When a card swipe arrives, it gets sent to the Paxton,
-and if it is observed to grant access (by observing either the relay close, or the LED color signal change),
-then the Companion board will energize or toggle the relay number that
-matches which card reader was swiped.
-
-If four readers and doors are connected to the left side, displacing the ACU, it would require that the ACU be
-connected elsewhere, either to either the right side, or to the Arduino shield pins (using a low-cost "screw terminal
-shield" product available online).
-
-## Reset button
+# Reset button
 The small button in the middle of the board is a reset button.  The board will also reset
 if the top (configuration) button is held for about 8 seconds.
 
