@@ -39,6 +39,8 @@ enabled by an installer using an infrared remote control.
 
 6. Two door contact inputs, and logic for handling double-doors.
 
+7. Use a regular dry-contact doorbell switch to transmit the "doorbell pressed" message to the Paxton Net2 ACU.
+
 # Setup
 
 This firmware is designed to work on a board that is pre-flashed for an out-of-box experience.
@@ -56,7 +58,8 @@ have one of these handy.
 
 As implemented, each feature is enabled or disabled by entering an 8-digit number, consisting
 of a 5-digit feature code, and then 3-digits to enable, disable, or configure the feature.
-Type the number and press the enter key on the remote.  
+Type the number and press the enter key on the remote.  The 5-digit feature code is influenced
+by what digits would spell the name of the feature if it were a touch-tone keypad.
 
 # Compiling
 Compile this sketch for Arduino Mega 2560.  It has the following library dependencies:
@@ -92,6 +95,17 @@ Use the bottom-left 8-terminal port (J4) to connect to the Paxton Net2 module, a
 
 The programming code to enable this feature is 87267114.  To disable it, 87267000.
 
+## Doorbell button
+The Paxton Net2 system supports a doorbell button (which is present on their PIN keypads).  The doorbell button
+is transmitted over the same wire as the card swipes and key presses.
+
+The programming code 32355008 enables the pins A8+A9 (or A8+GND) to be a contact closure doorbell connection.
+When enabled, the board will transmit a doorbell keypress message to the Paxton ACU whenever the
+contacts are closed.
+
+Sometimes Wiegand RFID keypads provide a doorbell button -- and if there are two doorbell wires in the
+wiring harness, then it's a good indication that it is just a dry contact switch.
+
 ## Door contact
 Connect to A15 and GND on the lower right side of the board (J12).
 
@@ -100,12 +114,32 @@ If it's a double door, use A15 for one door, and A14 for the other door.
 The selection of a "door program" enables the behavior of detecting whether the door(s) are
 closed, and whether to allow the motion detector input to cut the lock current (via Relay 1).
 
+The programming code to enable door contact sensing is:
+36667010 = Single Door, Sense Closed When Sense_A (A15) Input Grounded, Sense Locked via Current Detection
+36667011 = Single Door, Sense (Not Closed) Open When Sense_A Input Grounded, Sense Locked via Current Detection
+36667012 = Double Door, Sense A&B (A15&A14), Door is Closed when Input Grounded, Report Locked via Current Detection
+36667013 = Double Door, Sense A&B, Door is Open when Input Grounded, Report Locked via Current Detection
+36667014 = Single Door, Sense Closed when Sense_A Grounded, Sense Locked when Sense_B Input Grounded 
+36667015 = Single Door, Sense Closed when Sense_A Not Grounded, Sense Locked when Sense_B Input Not Grounded
+
+When the board "senses" the door closed or locked, this status information can be routed
+elsewhere.  For example, you can configure any of the relays to energize when "the door is closed".
+
 ## Motion detector
 Connect to middle right side of the board (J10).  +12V and GND are provided for powering
 the motion detector.  The motion detector should connect (or ground) GPIO16 and GPIO17
 when motion is detected.
 
+The motion detector program doesn't require a feature code -- it's active any time a door program
+is active, or a relay program that references the motion detector.
+
 ## Door lock
 Connect this to Relay 1 (J8).  It's best to use the "normally closed" connection.
 The motion detector and door program will energize this relay when unlocking the door is
 desired due to motion detection.
+
+## Relay program
+This feature allows you to configure any of the 4 onboard relays to mirror some sensed
+status on board.
+
+
