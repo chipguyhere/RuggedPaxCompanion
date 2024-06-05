@@ -40,7 +40,7 @@ enabled by an installer using an infrared remote control.
 
 6. Door-left-open warning beep (for RFID keypads with a beep function)
 
-7. Two door contact inputs, and logic for handling double-doors.
+7. Two door contact inputs, and logic for handling double-doors (i.e. single doors that have two slabs)
 
 8. Use any regular dry-contact doorbell switch to transmit the "doorbell pressed" message to the Paxton Net2 ACU.
 
