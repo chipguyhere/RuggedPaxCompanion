@@ -35,10 +35,13 @@ static displayPage programmingMode;
 static bool lcdInitSuccess=false;
 static const char keymap[] PROGMEM = "0123456789*#";
 
-static Adafruit_NeoPixel pixels(1, 43, NEO_GRB + NEO_KHZ800);
+static Adafruit_NeoPixel pixels(1, 46, NEO_GRB + NEO_KHZ800);
 
 
 static void setRgbLedColor(byte r, byte g, byte b) {
+  static bool inited;
+  if (!inited) pixels.begin();
+  inited=true;
   pixels.setPixelColor(0, pixels.Color(r,g,b));
   pixels.show();
 }
