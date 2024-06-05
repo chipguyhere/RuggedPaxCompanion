@@ -65,8 +65,13 @@ learning process.  If nothing happens, the remote isn't compatible)
 
 As implemented, each feature is enabled or disabled by entering an 8-digit number, consisting
 of a 5-digit feature code, and then 3-digits to enable, disable, or configure the feature.
-Type the number and press the enter key on the remote.  The 5-digit feature code is influenced
+Type the number and press the enter or # key on the remote.  The 5-digit feature code is influenced
 by what digits would spell the name of the feature if it were a touch-tone keypad.
+
+On the remote, the star or back key erases your input (or any messages) and allows you to enter another
+feature code.  Feature codes are saved immediately but will take effect after the board is
+rebooted or reset.  For convenience, pressing the configuration button after entering any valid feature
+codes will immediately reboot the board.
 
 # Normal operation
 
@@ -88,7 +93,7 @@ Compile this sketch for Arduino Mega 2560.  It has the following library depende
 # Connecting things
 
 ## Wiegand RFID card reader
-A Wiegand card reader connects to the top-left 8-terminal port (J3), as follows:
+A Wiegand card reader connects to the top-left 8-terminal port (J3), as follows (from top to bottom):
 * +12V
 * Wiegand Data D0 (GPIO18)
 * Wiegand Data D1 (GPIO19)
@@ -113,6 +118,14 @@ Use the bottom-left 8-terminal port (J4) to connect to the Paxton Net2 module, a
 * Paxton Ground
 
 The programming code to enable this feature is 87267114.  To disable it, 87267000.
+
+The RFID reader is assumed to show a green light when the LED wire is set low (or grounded), and red if it's
+set high or disconnected.  For HID MultiClass readers, the terminal labeled "GRN" or "GREEN" has this behavior.
+
+The reader is assumed to beep when the beep wire is set low (or grounded).  The reader
+translation program will attempt to set the reader light to green any time the Paxton Red LED wire is not being
+signaled (which usually coincides with relay time for "access granted" -- or a rapid sequence of flashes for
+"access denied").
 
 ## Doorbell button
 The Paxton Net2 system supports a doorbell button (which is present on their PIN keypads).  The doorbell button
@@ -202,7 +215,7 @@ is being able to detect whether the lock is jammed by analysis of its current co
 (e.g. a lock that failing to engage with the door due to incomplete closure or poor alignment).
 
 # Reset button
-The small button in the middle of the board is a reset button.  The board will also reset
+The small button near the middle of the board is a reset button.  The board will also reset
 if the top (configuration) button is held for about 8 seconds.
 
 
