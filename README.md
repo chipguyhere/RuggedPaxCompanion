@@ -8,13 +8,14 @@ enabled by an installer using an infrared remote control.
 
 # What is the board?
 The Companion board discreetly installs behind a Paxton Net2 Access Control Unit (ACU), fitting completely inside
-the original Paxton cabinet, and which performs additional custom functions
-not available in the stock Net2 system.  These functions are of your choosing from this stock firmware image, or of your own
-creation since the board is 100% compatible with the Arduino IDE development environment.
+the original Paxton cabinet.  The Companion performs additional custom functions
+not available in the stock Net2 system.  These functions are of your choosing from this stock firmware image, 
+or one that you customized and loaded yourself since the board is 100% compatible with the Arduino IDE development
+environment.
 
-Viewed another way, it is an Arduino board that can be used to implement a customized security solution,
-which is compatible with having a Paxton Net2 Access Control Unit placed on top of it, which grafts in an
-industry-leading solution and an established software ecosystem that serves as a solid starting point for
+Viewed another way, Companion is an Arduino board that can be used to implement a customized security solution,
+which supports having a Paxton Net2 Access Control Unit placed on top of it.  This effectively "grafts in" an
+industry-leading solution and an established enterprise software/vendor ecosystem that serves as a solid starting point for
 your custom door installation.
 
 <img src="./images/Net2_with_Compan.png" alt="Net2 with board behind it" width="300">
@@ -40,11 +41,11 @@ your custom door installation.
    lengths (e.g. for HID MultiClass and similar readers) and proper numeric conversion of Paxton-branded
    tokens (so they read the same code as on Paxton readers).
    This firmware emulates the clock-and-data protocol used by Paxton's own card readers and keypads, so,
-   simply program them as "Paxton Reader" with "Paxton Tokens".
+   you'll simply program them as "Paxton Reader" with "Paxton Tokens".
 
 2. Multiple relay outs.  Switch multiple loads (up to 4 relays) when access is granted.
 
-3. Current sensor, as a way of detecting lock status.  Can be used to drive a relay out and
+3. Current (amperage) sensor, as a way of detecting lock status.  Can be used to drive a relay out and
    inform a security system.
 
 4. Motion detector timing program.  *Avoids* allowing the motion detector to unlock the door for the
@@ -63,12 +64,13 @@ your custom door installation.
 
 # Installing in a Paxton ACU cabinet
 
-1. The Paxton ACU board attaches to the cabinet via a mounting plate and four plastic snap-in standoffs.  Remove these
-   standoffs from the mounting plate (which may require carefully squeezing them with needle-nose pliers).
-   They will not be needed and can either be saved or discarded.
+1. Open your Paxton cabinet.  You'll find the Paxton ACU board attaches to the cabinet via a mounting plate
+   and four plastic snap-in standoffs.  Remove the mounting plate (held in by a screw), and then remove these
+   standoffs from the ACU board and the mounting plate (which may require carefully squeezing them with needle-nose pliers).
+   These standoffs will not be needed and can either be saved or discarded.
 
-2. Attach the four supplied *brass* #6-32 standoffs to Paxton's mounting plate, and secure them in place with the
-   metal nuts provided.  The nuts go on the back side, facing the wall, so the threaded side faces you when the
+2. Attach the four supplied *brass* #6-32 standoffs to the mounting plate (where you removed the original standoffs), and secure these in place with the
+   metal nuts provided.  The nuts go on the back side, facing the wall, so the threaded side faces you when the mounting
    plate goes back into the cabinet.
 
 3. Re-attach the mounting plate into the Paxton cabinet.
@@ -79,7 +81,7 @@ your custom door installation.
 5. Use the four *white plastic* standoffs (provided) to mount the Companion board into the enclosure.
    Finger tighten.
 
-6. Use the four screws to attach the ACU to the plastic standoffs.
+6. Use the four screws to attach the ACU board onto the plastic standoffs, so that it overlays the Companion board.
 
 7. Ensure correct fit, and that the cabinet door still closes with the additional circuit board installed.
 
