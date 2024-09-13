@@ -63,11 +63,13 @@ your custom door installation.
 
 # Installing in a Paxton ACU cabinet
 
-1. The Paxton ACU board attaches to the cabinet via a mounting plate and four plastic standoffs.  Remove these
-   standoffs from the mounting plate.
+1. The Paxton ACU board attaches to the cabinet via a mounting plate and four plastic snap-in standoffs.  Remove these
+   standoffs from the mounting plate (which may require carefully squeezing them with needle-nose pliers).
+   They will not be needed and can either be saved or discarded.
 
 2. Attach the four supplied *brass* #6-32 standoffs to Paxton's mounting plate, and secure them in place with the
-   nylon nuts provided.
+   metal nuts provided.  The nuts go on the back side, facing the wall, so the threaded side faces you when the
+   plate goes back into the cabinet.
 
 3. Re-attach the mounting plate into the Paxton cabinet.
 
@@ -81,7 +83,7 @@ your custom door installation.
 
 7. Ensure correct fit, and that the cabinet door still closes with the additional circuit board installed.
 
-8. Wire the power supply (12 volts) into the top right corner (2-position) connector of the Companion board (at a minimum),
+8. Wire the power supply (12 volts) into the top right corner (2-position) connector of the Companion board,
    observing correct polarity.  Any other things you wire to the Companion board will depend on your choice of enabled features.
 
 # Setup
