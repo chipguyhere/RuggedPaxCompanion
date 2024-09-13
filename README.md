@@ -6,6 +6,20 @@ Ruggeduino is an Arduino-compatible board whose source code can be edited to sui
 available in a default Net2 installation.  Several features are provided in this firmware and can be
 enabled by an installer using an infrared remote control.
 
+# What is the board?
+The Companion board discreetly installs behind a Paxton Net2 Access Control Unit (ACU), fitting completely inside
+the original Paxton cabinet, and which performs additional custom functions
+not available in the stock Net2 system.  These functions are of your choosing from this stock firmware image, or of your own
+creation since the board is 100% compatible with the Arduino IDE development environment.
+
+Viewed another way, it is an Arduino board that can be used to implement a customized security solution,
+which is compatible with having a Paxton Net2 Access Control Unit placed on top of it, which grafts in an
+industry-leading solution and an established software ecosystem that serves as a solid starting point for
+your custom door installation.
+
+<img src="./images/Net2_with_Compan.png" alt="Net2 with board behind it" width="300">
+
+
 # Hardware Features of the Ruggeduino Companion board
 * Fits perfectly behind a Paxton Net2 ACU in its native enclosure, using standard 1-inch nylon standoffs
 * Atmega2560 Arduino-compatible processor
@@ -33,10 +47,10 @@ enabled by an installer using an infrared remote control.
 3. Current sensor, as a way of detecting lock status.  Can be used to drive a relay out and
    inform a security system.
 
-4. Motion detector timing program.  Avoids allowing the motion detector to unlock the door for the
+4. Motion detector timing program.  *Avoids* allowing the motion detector to unlock the door for the
    first 20 seconds of being closed, so it locks immediately upon closure and allows the person
-   closing the door to verify it's closed, without the motion detector holding it unlocked as they
-   approach and walk away.
+   closing the door to verify it's closed, without the motion detector immediately unlocking it as they
+   try to walk away.
 
 6. Door-left-open warning beep (for RFID keypads with a beep function)
 
@@ -46,6 +60,29 @@ enabled by an installer using an infrared remote control.
 
 9. The ability to use the free Arduino IDE software to make modifications to the firmware (or create your own) with
     intermediate-level Arduino programming experience
+
+# Installing in a Paxton ACU cabinet
+
+1. The Paxton ACU board attaches to the cabinet via a mounting plate and four plastic standoffs.  Remove these
+   standoffs from the mounting plate.
+
+2. Attach the four supplied *brass* #6-32 standoffs to Paxton's mounting plate, and secure them in place with the
+   nylon nuts provided.
+
+3. Re-attach the mounting plate into the Paxton cabinet.
+
+4. Hold the Companion board onto the mounting plate, lining up the holes in the Companion board with the brass
+   standoffs.
+
+5. Use the four *white plastic* standoffs (provided) to mount the Companion board into the enclosure.
+   Finger tighten.
+
+6. Use the four screws to attach the ACU to the plastic standoffs.
+
+7. Ensure correct fit, and that the cabinet door still closes with the additional circuit board installed.
+
+8. Wire the power supply (12 volts) into the top right corner (2-position) connector of the Companion board (at a minimum),
+   observing correct polarity.  Any other things you wire to the Companion board will depend on your choice of enabled features.
 
 # Setup
 
