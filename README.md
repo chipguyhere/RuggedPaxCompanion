@@ -19,6 +19,7 @@ industry-leading solution and an established enterprise software/vendor ecosyste
 your custom door installation.
 
 <img src="./images/Net2_with_Compan.png" alt="Net2 with board behind it" width="300">
+<img src="./images/SampleEnclosure.jpg" alt="Net2 with board behind it" width="300">
 
 
 # Hardware Features of the Ruggeduino Companion board
@@ -93,16 +94,21 @@ your custom door installation.
 This firmware is designed to be useful on a board that is sold pre-flashed and packaged with an infrared remote
 for a typical install and configuration.  The board has a single button for navigating through a basic menu screen.
 
-Press the button to flip through the pages.  Some of the pages may suggest doing a long press
-(~1 sec) to drill down into more detail about that feature (which is view-only).
+Press the button to flip through the main pages: Info, Diagnostics, and Programming.
 
-One of the first pages is "programming mode".
+Navigating through the pages is done via either short presses or long presses.
+In general, a long press will either make a selection or drill down into detail, and short
+presses will step through things.  Without an infrared remote to use as a keypad,
+you are limited to view-only access.
+
+<img src="./images/ProgrammingMode.jpg" alt="Programming Mode" width="300">
 
 In "programming mode", an infrared remote can be used to enable and configure the built-in
-features.  The low-cost generic remote provided in Arduino hobby kits on Amazon is natively
-supported, and the firmware's quick-learn feature allows the board to learn a new remote in case you do not
+features.  The common generic remote provided in Arduino hobby kits on Amazon is natively
+supported, and the firmware's quick-learn feature allows the board to learn a new remote, borrowed
+from some other appliance (such as a television), in case you do not
 have one of these handy.  (Press 0 on that remote, ten times, in programming mode, to start the
-learning process.  If nothing happens, the remote isn't compatible)
+learning process, and then follow on-screen instructions.  If nothing happens, the remote isn't compatible)
 
 As implemented, each feature is enabled or disabled by entering an 8-digit number, consisting
 of a 5-digit feature code, and then 3-digits to enable, disable, or configure the feature.
