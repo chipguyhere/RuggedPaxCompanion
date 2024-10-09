@@ -63,6 +63,10 @@ your custom door installation.
 9. The ability to use the free Arduino IDE software to make modifications to the firmware (or create your own) with
     intermediate-level Arduino programming experience
 
+Other features in the concept and development stage include support for a privacy toggle switch (to allow occupants
+to select a mode where card swipes go to the Reader 2 port, separately configurable in Paxton to have different
+access rules), and a serial logger/uplink connection to enable more options for integration with a security/alarm system.
+
 # Installing in a Paxton ACU cabinet
 
 1. Open your Paxton cabinet.  You'll find the Paxton ACU board attaches to the cabinet via a mounting plate
