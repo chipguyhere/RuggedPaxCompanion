@@ -60,7 +60,10 @@ your custom door installation.
 
 8. Use any regular dry-contact doorbell switch to transmit the "doorbell pressed" message to the Paxton Net2 ACU.
 
-9. The ability to use the free Arduino IDE software to make modifications to the firmware (or create your own) with
+9. Switch auxiliary loads (such as building lights) with unused RFID keypad keys (e.g. star key on
+   RFID keypad switches a relay for 1-99 seconds).  Customize the keys or logic by editing the source code.
+
+10. The ability to use the free Arduino IDE software to make modifications to the firmware (or create your own) with
     intermediate-level Arduino programming experience
 
 Other features in the concept and development stage include support for a privacy toggle switch (to allow occupants
